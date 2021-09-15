@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    
+<script>
+
+function computerPlay() {
+    let computerChoiceNum = Math.floor(Math.random() * 3) + 1;
+    let computerHand = "";
+   if (computerChoiceNum === 1) {
+    computerHand = "Rock";
+      } else if (computerChoiceNum === 2) {
+    computerHand = "Paper";
+    } else {
+        computerHand = "Scissors";
+    }
+    return computerHand;
+    
+    }
+
+function playRound(playerHand, computerHand) {
+    let playerChoice = playerHand.toLowerCase();
+    let computerChoice = computerHand.toLowerCase();
+    if (playerChoice === computerChoice) {
+        return "It\'s a tie!";
+    }
+
+    if (playerChoice === "rock") {
+        if (computerChoice === "paper") {
+        return "You Lose! Paper beats Rock!";
+    } else if (computerChoice === "scissors") {
+        return "You Win! Rock beats Scissors!";
+      }
+    }
+
+
+if (playerChoice === "paper") {
+        if (computerChoice === "scissors") {
+        return "You Lose! Scissors beat Paper!";
+    } else if (computerChoice === "rock") {
+        return "You Win! Paper beats Rock!";
+      }
+    }
+
+
+if (playerChoice === "scissors") {
+        if (computerChoice === "rock") {
+            return "lose";
+     //   return "You Lose! Rock beats Scissors!";
+    } else if (computerChoice === "paper") {
+            return "win";
+     //   return "You Win! Scissors beat Paper!";
+      } else {
+          return "nothing";
+      }
+    }
+}
+
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    const playerHand = prompt("Hand?");
+    const computerHand = computerPlay();
+
+    //while (playerScore < 5 && computerScore < 5) {
+    playRound(playerHand, computerPlay());
+    if (playRound(playerHand, computerPlay()) === "win") {
+        playerScore++;
+    } else if (playRound(playerHand, computerPlay()) === "lose") {
+        computerScore++;
+    } else {
+        
+    }
+
+    //console.log(playRound(playerHand, computerHand));
+    console.log(playerHand);
+    console.log(computerHand);
+    console.log(`Player Score is now ${playerScore}`);
+    console.log(`Computer Score is now ${computerScore}`);
+
+    
+}
+    
+
+
+
+//const playerHand = "scissors";
+//const playerHand = prompt("Hand?");
+//const computerHand = computerPlay();
+
+//console.log(playerHand);
+//console.log(computerHand);
+//console.log(playerScore);
+//console.log(computerScore);
+//console.log(playRound(playerHand, computerHand));
+
+console.log(game());
+
+
+
+
+</script>
+
+</body>
+</html>
