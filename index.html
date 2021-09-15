@@ -10,6 +10,38 @@
     
 <script>
 
+
+// THE GAME ITSELF
+let playerScore = 0;
+let computerScore = 0;
+
+function game() {
+
+    const playerHand = prompt("Hand?");
+    const computerHand = computerPlay();
+    
+
+    //for (i = 0; i < 5; i++) {
+  
+    playRound(playerHand, computerPlay());
+    
+   // if (playRound(playerHand, computerPlay()) === "win") {
+   //     playerScore++;
+   // } else if (playRound(playerHand, computerPlay()) === "lose") {
+   //     computerScore++;
+  
+  //  } 
+
+   console.log(playerHand);
+   console.log(computerHand);
+   console.log(playRound(playerHand, computerHand));
+    console.log(`Player Score is now ${playerScore}`);
+    console.log(`Computer Score is now ${computerScore}`);
+
+    
+}
+
+// GENERATING COMPUTER HAND
 function computerPlay() {
     let computerChoiceNum = Math.floor(Math.random() * 3) + 1;
     let computerHand = "";
@@ -24,26 +56,33 @@ function computerPlay() {
     
     }
 
+
+    // ONE ROUND
 function playRound(playerHand, computerHand) {
     let playerChoice = playerHand.toLowerCase();
     let computerChoice = computerHand.toLowerCase();
     if (playerChoice === computerChoice) {
+     //     return true;
         return "It\'s a tie!";
     }
 
     if (playerChoice === "rock") {
         if (computerChoice === "paper") {
+          computerScore++;
         return "You Lose! Paper beats Rock!";
     } else if (computerChoice === "scissors") {
-        return "You Win! Rock beats Scissors!";
+            playerScore++;
+           return "You Win! Rock beats Scissors!";
       }
     }
 
 
 if (playerChoice === "paper") {
         if (computerChoice === "scissors") {
+            computerScore++;
         return "You Lose! Scissors beat Paper!";
     } else if (computerChoice === "rock") {
+            playerScore++;
         return "You Win! Paper beats Rock!";
       }
     }
@@ -51,59 +90,17 @@ if (playerChoice === "paper") {
 
 if (playerChoice === "scissors") {
         if (computerChoice === "rock") {
-            return "lose";
-     //   return "You Lose! Rock beats Scissors!";
+            computerScore++;
+        return "You Lose! Rock beats Scissors!";
     } else if (computerChoice === "paper") {
-            return "win";
-     //   return "You Win! Scissors beat Paper!";
-      } else {
-          return "nothing";
+            playerScore++;
+        return "You Win! Scissors beat Paper!";
       }
     }
 }
 
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    const playerHand = prompt("Hand?");
-    const computerHand = computerPlay();
-
-    //while (playerScore < 5 && computerScore < 5) {
-    playRound(playerHand, computerPlay());
-    if (playRound(playerHand, computerPlay()) === "win") {
-        playerScore++;
-    } else if (playRound(playerHand, computerPlay()) === "lose") {
-        computerScore++;
-    } else {
-        
-    }
-
-    //console.log(playRound(playerHand, computerHand));
-    console.log(playerHand);
-    console.log(computerHand);
-    console.log(`Player Score is now ${playerScore}`);
-    console.log(`Computer Score is now ${computerScore}`);
-
-    
-}
-    
-
-
-
-//const playerHand = "scissors";
-//const playerHand = prompt("Hand?");
-//const computerHand = computerPlay();
-
-//console.log(playerHand);
-//console.log(computerHand);
-//console.log(playerScore);
-//console.log(computerScore);
-//console.log(playRound(playerHand, computerHand));
-
 console.log(game());
-
-
 
 
 </script>
