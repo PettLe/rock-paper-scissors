@@ -11,34 +11,34 @@
 <script>
 
 
-// THE GAME ITSELF
+// INITIAL GLOBAL VALUES
 let playerScore = 0;
 let computerScore = 0;
+let result = "";
 
+// THE GAME ITSELF
 function game() {
+while (playerScore < 5 && computerScore < 5) {  
+    let playerHand = prompt("Rock, Paper or Scissors?");
+    let computerHand = computerPlay();
 
-    const playerHand = prompt("Hand?");
-    const computerHand = computerPlay();
-    
+    playRound(playerHand, computerHand);
 
-    //for (i = 0; i < 5; i++) {
-  
-    playRound(playerHand, computerPlay());
-    
-   // if (playRound(playerHand, computerPlay()) === "win") {
-   //     playerScore++;
-   // } else if (playRound(playerHand, computerPlay()) === "lose") {
-   //     computerScore++;
-  
-  //  } 
 
-   console.log(playerHand);
-   console.log(computerHand);
-   console.log(playRound(playerHand, computerHand));
+    console.log(playerHand);
+    console.log(computerHand);
+    console.log(result);
     console.log(`Player Score is now ${playerScore}`);
     console.log(`Computer Score is now ${computerScore}`);
+    console.log(" ");
 
-    
+    if (playerScore === 5) {
+        console.log("Congratulations! You Won the Game!");
+    } else if (computerScore === 5) {
+        console.log("You Lost! Computer Won the Game!");
+    }
+
+}
 }
 
 // GENERATING COMPUTER HAND
@@ -62,45 +62,43 @@ function playRound(playerHand, computerHand) {
     let playerChoice = playerHand.toLowerCase();
     let computerChoice = computerHand.toLowerCase();
     if (playerChoice === computerChoice) {
-     //     return true;
-        return "It\'s a tie!";
+        return result = "It\'s a tie!";
     }
 
     if (playerChoice === "rock") {
         if (computerChoice === "paper") {
-          computerScore++;
-        return "You Lose! Paper beats Rock!";
-    } else if (computerChoice === "scissors") {
+          computerScore++;         
+        return result = "You Lose! Paper beats Rock!";
+    } else if (playerChoice === "rock") {
+        if (computerChoice === "scissors") {
             playerScore++;
-           return "You Win! Rock beats Scissors!";
+           return result = "You Win! Rock beats Scissors!"}
       }
     }
 
-
-if (playerChoice === "paper") {
+    if (playerChoice === "paper") {
         if (computerChoice === "scissors") {
             computerScore++;
-        return "You Lose! Scissors beat Paper!";
+            return result = "You Lose! Scissors beat Paper!";
     } else if (computerChoice === "rock") {
             playerScore++;
-        return "You Win! Paper beats Rock!";
-      }
+        return result = "You Win! Paper beats Rock!";
+     }
     }
 
-
-if (playerChoice === "scissors") {
+    if (playerChoice === "scissors") {
         if (computerChoice === "rock") {
             computerScore++;
-        return "You Lose! Rock beats Scissors!";
+        return result = "You Lose! Rock beats Scissors!";
     } else if (computerChoice === "paper") {
             playerScore++;
-        return "You Win! Scissors beat Paper!";
+        return result = "You Win! Scissors beat Paper!";
       }
     }
 }
 
-
-console.log(game());
+//BEGIN THE GAME
+game();
 
 
 </script>
