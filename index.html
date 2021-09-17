@@ -4,104 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    
-<script>
-
-
-// INITIAL GLOBAL VALUES
-let playerScore = 0;
-let computerScore = 0;
-let result = "";
-
-// THE GAME ITSELF
-function game() {
-while (playerScore < 5 && computerScore < 5) {  
-    let playerHand = prompt("Rock, Paper or Scissors?");
-    let computerHand = computerPlay();
-
-    playRound(playerHand, computerHand);
-
-
-    console.log(playerHand);
-    console.log(computerHand);
-    console.log(result);
-    console.log(`Player Score is now ${playerScore}`);
-    console.log(`Computer Score is now ${computerScore}`);
-    console.log(" ");
-
-    if (playerScore === 5) {
-        console.log("Congratulations! You Won the Game!");
-    } else if (computerScore === 5) {
-        console.log("You Lost! Computer Won the Game!");
-    }
-
-}
-}
-
-// GENERATING COMPUTER HAND
-function computerPlay() {
-    let computerChoiceNum = Math.floor(Math.random() * 3) + 1;
-    let computerHand = "";
-   if (computerChoiceNum === 1) {
-    computerHand = "Rock";
-      } else if (computerChoiceNum === 2) {
-    computerHand = "Paper";
-    } else {
-        computerHand = "Scissors";
-    }
-    return computerHand;
-    
-    }
-
-
-    // ONE ROUND
-function playRound(playerHand, computerHand) {
-    let playerChoice = playerHand.toLowerCase();
-    let computerChoice = computerHand.toLowerCase();
-    if (playerChoice === computerChoice) {
-        return result = "It\'s a tie!";
-    }
-
-    if (playerChoice === "rock") {
-        if (computerChoice === "paper") {
-          computerScore++;         
-        return result = "You Lose! Paper beats Rock!";
-    } else if (playerChoice === "rock") {
-        if (computerChoice === "scissors") {
-            playerScore++;
-           return result = "You Win! Rock beats Scissors!"}
-      }
-    }
-
-    if (playerChoice === "paper") {
-        if (computerChoice === "scissors") {
-            computerScore++;
-            return result = "You Lose! Scissors beat Paper!";
-    } else if (computerChoice === "rock") {
-            playerScore++;
-        return result = "You Win! Paper beats Rock!";
-     }
-    }
-
-    if (playerChoice === "scissors") {
-        if (computerChoice === "rock") {
-            computerScore++;
-        return result = "You Lose! Rock beats Scissors!";
-    } else if (computerChoice === "paper") {
-            playerScore++;
-        return result = "You Win! Scissors beat Paper!";
-      }
-    }
-}
-
-//BEGIN THE GAME
-game();
-
-
-</script>
+    <div class="main">
+        <div class="info">
+            <h1>Welcome, to the... GAME!</h1>
+            <div class="results"></div>
+        </div>
+        <div class="choice">
+            <div class="buttons">
+                <button class="nappi"  value="Rock">ROCK</button>
+                <button class="nappi"  value="Paper">PAPER</button>
+                <button class="nappi"  value="Scissors">SCISSORS</button>
+                <!--<button id="nappi" class="btn1" value="rock">ROCK</button>
+                <button id="nappi" class="btn2" value="paper">PAPER</button>
+                <button id="nappi" class="btn3" value="scissors">SCISSORS</button>-->
+            </div>
+        </div>
+    </div>
+<script src="app.js"></script>
 
 </body>
 </html>
