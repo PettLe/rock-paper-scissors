@@ -21,3 +21,18 @@ What to focus on in the future? Please please PLEASE practice debugging. And pla
 (Can't use console debugger at all...)
 
 But still! Proud of myself!
+
+---------------EDIT FOR UI EXERCISE
+This was toooough. Biggest problem was to make the buttons functioning. Took me at least four hours. Not 100% sure yet how I managed to do it, but I did it!
+
+Score board was a breeze. Making the buttons disabled when the game ends not easy, but didn't take too long.
+
+I have basic understanding of using getElements, document.querys as well eventListeners etc. Still, using them is hard.
+
+Only regret: I used CSS to "animate" buttons. Which is super easy. I tried to use JS and eventListeners for that, but had no success and gave up on that front. Lost the battle but won the war!
+Definetly need to get into that more!
+
+I probably will be coming back to this project, trying to improve my old code and design. I feel that my original code for the console version of the game was quite messy and it did make this project significantly harder than it needed to be.
+
+Managed to clean it a little bit during this second part of the project.
+Good lesson for the future: think what you code, you may need to come back to it.
