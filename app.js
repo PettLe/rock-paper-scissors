@@ -1,36 +1,46 @@
 // INITIAL GLOBAL VALUES
-let playerScore = 0;
+let playerScore =  0;
 let computerScore = 0;
 let result = "";
-//const buttons = document.querySelectorAll("buttons").value;
 
 const playerHand2 = document.getElementsByClassName("nappi");
 let playerHand = "";
-console.log(playerHand2.length);
+let playerPoints = document.querySelector(".playerPoints");
+let computerPoints = document.querySelector(".computerPoints");
+const outCome = document.querySelector(".outCome");
+
+const replayBtn = document.querySelector(".replay");
+replayBtn.addEventListener("click", function() { 
+    playerScore = 0, computerScore = 0;
+    playerPoints.textContent = playerScore;
+    computerPoints.textContent = computerScore;
+    outCome.removeAttribute("style");
+    outCome.textContent = "";
+    document.getElementById("buttons").style.visibility = "visible";
+});
+
+
 // THE GAME ITSELF
 function game() {
-//while (playerScore < 5 && computerScore < 5) { 
-//    let playerHand = prompt("Rock, Paper or Scissors?");
     let computerHand = computerPlay();
 
     playRound(playerHand, computerHand);
-
-
-    console.log(playerHand);
-    console.log(computerHand);
-    console.log(result);
-    console.log(`Player Score is now ${playerScore}`);
-    console.log(`Computer Score is now ${computerScore}`);
-    console.log(" ");
+    playerPoints.textContent = playerScore;
+    computerPoints.textContent = computerScore;
+    outCome.textContent = result;
+   
 
     if (playerScore === 5) {
-        console.log("Congratulations! You Won the Game!");
+        document.getElementById("buttons").style.visibility = "hidden";
+        outCome.setAttribute("style", "font-size: 24px", "font-weight: 500");
+        outCome.innerHTML = '<center>Congratulations! You Won the Game! <br> Click replay and play again!';
     } else if (computerScore === 5) {
-        console.log("You Lost! Computer Won the Game!");
+        document.getElementById("buttons").style.visibility = "hidden";
+        outCome.setAttribute("style", "font-size: 24px", "font-weight: 500");
+        outCome.innerHTML = "<center>You Lost! Computer Won the Game! <br> Click replay and play again!";
     }
 
 }
-//}
 
 // GENERATING COMPUTER HAND
 function computerPlay() {
@@ -50,8 +60,6 @@ function computerPlay() {
 
     // ONE ROUND
 function playRound(playerHand, computerHand) {
-    //let playerChoice = playerHand.toLowerCase();
-    //let computerChoice = computerHand.toLowerCase();
     if (playerHand === computerHand) {
         return result = "It\'s a tie!";
     }
@@ -89,18 +97,9 @@ function playRound(playerHand, computerHand) {
 }
 
 //BEGIN THE GAME
-//game();
-//const playBtn = document.querySelector(".nappi");
 for (i = 0; i < playerHand2.length; i++) {
-//playerHand[i].addEventListener("click", game);
-//console.log(playerHand[i].value);
-
-//playerHand[i].addEventListener("click", function() {
-//   console.log(this.value);});
-
 playerHand2[i].addEventListener("click", function() {
-   //console.log(this.value);
     playerHand = this.value;
-//    console.log(playerHand.value);
 game();});
 }
+
